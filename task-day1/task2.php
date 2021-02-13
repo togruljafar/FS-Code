@@ -1,26 +1,22 @@
 <?php 
     $text = "suretli kod yazmaq her zaman daha yaxsi kod yazmaq demek deyil. seliqeye ve hellin optimalligina da fikir verilmelidir.";
-    $text = trim($text); // olasi yan bosluqlari sifirlamaq ucun
+    $text = trim($text); // olasi bosluqlari silmek ucun
     $sentences = [];
     $myText = '';
     $dotIndexs = [];
     $lastIndex = 0;
 
     // noqtelerin indexini tapiriq ve arrayimizi elave edirik.
-    for($i = 0; ; $i++) {
-        if(empty($text[$i])) {
-            break;
-        } else if($text[$i] == ".") {
+    for($i = 0; isset($text[$i]); $i++) {
+        if($text[$i] == ".") {
             $dotIndexs[] = $i;
         }
     }
 
     //tapdigimiz noqte indexlerine gore cumleleri ayiririq
     foreach($dotIndexs as $count) {
-        for($i = 0; ; $i++) {
-            if(empty($text[$i])) {
-                break;
-            } else if ($i >= $lastIndex && $i <= $count) {
+        for($i = 0; isset($text[$i]) ; $i++) {
+            if ($i >= $lastIndex && $i <= $count) {
                 $myText .= $text[$i];
             }
         }
