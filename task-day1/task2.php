@@ -1,6 +1,6 @@
 <?php 
     $text = "suretli kod yazmaq her zaman daha yaxsi kod yazmaq demek deyil. seliqeye ve hellin optimalligina da fikir verilmelidir.";
-    $text = trim($text);
+    $text = trim($text); // olasi yan bosluqlari sifirlamaq ucun
     $sentences = [];
     $myText = '';
     $dotIndexs = [];
