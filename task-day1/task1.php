@@ -1,6 +1,8 @@
 <?php
     $sentence = " Bu cumlede tam-tamina alti  soz var. ";
     $count = 0;
+    //olasi artiq bosluqlari silmek ucun
+    $sentence = trim($sentence);
     // cumlemi sozlere parcalayiram ve words arrayine elave edirem
     $word = '';
     $words = [];
