@@ -18,8 +18,6 @@
     }
     
     foreach($words as $value) {
-        echo $value."<br>";
-        
         $count++;
     }
 
