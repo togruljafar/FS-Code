@@ -9,12 +9,8 @@
     $y = $x + $y;
     $myword = '';
 
-    for($i = 0; ; $i++) {
-        if(empty($text[$i])) {
-            break;
-        } else if($i >= $x && $i < $y) {
-            $myword .= $text[$i];
-        }
+    for($i = $x; $i<$y ; $i++) {
+        $myword .= $text[$i];
     }
 
     echo $myword;
