@@ -67,9 +67,9 @@
         $boysCount      = 0;            // all of the boys count in Class
         $agesSum        = 0;            // total age of all students in class
         $n              = 1;            // student numbers for table
-        $olderStudent   = [];           // the oldest student in class
-        $youngerStudent = [];           // the youngest student in class
-
+        $olderStudent   = $datas[0];    // the oldest student in class and I set the default value
+        $youngerStudent = $datas[0];    // the youngest student in class and I set the default value
+        
         echo '<table>
                 <tr>
                     <th style="width:20px;">№</th>
@@ -94,10 +94,7 @@
                 $boysCount++;
             }
             
-            $agesSum += $value['age'];                          // sum all students age
-
-            $key === 0? $olderStudent = $datas[0] : null;       // I set the default value
-            $key === 0? $youngerStudent = $datas[0] : null;     // I set the default value
+            $agesSum += $value['age'];    // sum all students age
 
             // finding student which is older of class
             if($olderStudent>=$value['age']) {
@@ -112,34 +109,15 @@
         echo '</table>';
 
         $studentCount = $n-1;   // $n => students number for table but it is *ONE* count higher its in last loop
-
-        // print result as table
-        echo '<table>
-                <tr>
-                    <th>Oğlanların sayı: </th>
-                    <td>'.$boysCount.'</td>
-                </tr>
-                <tr>
-                    <th>Qızların sayı: </th>
-                    <td>'.$girlsCount.'</td>
-                </tr>
-                <tr>
-                    <th>Sinifdəki uşaqların ümumi yaş ortalaması: </th>
-                    <td>'.$agesSum/$studentCount.'</td>     
-                </tr>
-                <tr>
-                    <th>Sinifdəki ən kiçik tələbənin adı: </th>
-                    <td>'.$youngerStudent['name']." ".$youngerStudent['surname'].'</td>
-                </tr>
-                <tr>
-                    <th>Sinifdəki ən böyük tələbənin adı: </th>
-                    <td>'.$olderStudent['name']." ".$olderStudent['surname'].'</td>
-                </tr>
-                <tr>
-                    <th>Sinifdəki uşaqların ümumi sayı: </th>
-                    <td>'.$studentCount.'</td>
-                </tr>
-              </table>';
+        // To find the average age, we divide the sum of the total ages by the number of children in the class in line 117
+        
+        // print result
+        echo '<p>Oğlanların sayı: '.$boysCount.'</p>
+              <p>Qızların sayı: '.$girlsCount.'</p>
+              <p>Sinifdəki uşaqların ümumi yaş ortalaması: '.$agesSum/$studentCount.'</p>
+              <p>Sinifdəki ən kiçik tələbənin adı: '.$youngerStudent['name']." ".$youngerStudent['surname'].'</p>
+              <p>Sinifdəki ən böyük tələbənin adı: '.$olderStudent['name']." ".$olderStudent['surname'].'</p>
+              <p>Sinifdəki uşaqların ümumi sayı: '.$studentCount.'</p>';
 
     }
 
